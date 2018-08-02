@@ -11,6 +11,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4"
   },
+  "proxy": "http://localhost:3001",
   "scripts": {
     "build-css": "node-sass-chokidar src/styles/scss/index.scss -o src/styles/css",
     "watch-css": "npm run build-css && node-sass-chokidar src/styles/scss/index.scss -o src/styles/css --watch --recursive",

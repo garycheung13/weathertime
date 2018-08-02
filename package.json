@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev-start": "NODE_ENV=development node ./bin/www",
+    "dev-start": "NODE_ENV=development PORT=3001 node ./bin/www",
     "prod-start": "node ./bin/www"
   },
   "dependencies": {
