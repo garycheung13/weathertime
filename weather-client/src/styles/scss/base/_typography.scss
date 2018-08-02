@@ -11,6 +11,15 @@ html {
     }
 }
 
+a {
+    color: black;
+    text-decoration: none;
+    font-family: "Nunito", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1rem;
+}
+
 h1 {
     font-family: "Nunito", sans-serif;
     font-weight: 700;
@@ -27,7 +36,21 @@ h2 {
 
 h3 {
     font-family: "Nunito", sans-serif;
-    font-weight: 300;
+    font-weight: 600;
     font-style: normal;
     font-size: 1.2rem;
+}
+
+h4 {
+    font-family: "Nunito", sans-serif;
+    font-style: normal;
+    font-size: 1.15rem;
+    font-weight: 300;
+}
+
+li {
+    font-family: "Nunito", sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 300;
 }

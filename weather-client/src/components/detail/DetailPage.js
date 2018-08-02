@@ -1,36 +1,62 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { cities, weather } from '../../dictionarys';
+import DetailDisplay from './DetailDisplay';
 
 class DetailPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoaded: false,
+            data: {
+                current: {},
+                upcoming: {}
+            },
+        };
+    }
     componentDidMount() {
-        fetch(`http://${window.location.host}/api/forecast`, {
+        // need to use two endpoints to get both current weather and upcoming forecast
+        const urls = [`http://${window.location.host}/api/forecast`, `http://${window.location.host}/api/single-current`]
+        const requests = urls.map(url => fetch(url, {
             method: "post",
             headers: {"Content-Type": "application/json" },
-            body: JSON.stringify({id: this.props.location.state.city.id}),
-        }).then(function(res){
-            return res.json();
-        }).then(function(payload){
-            console.log(payload);
-        })
+            body: JSON.stringify({id: cities[this.props.match.params.id].id}),
+        }));
+        Promise.all(requests)
+            .then((res) =>{
+                return Promise.all(res.map(data => data.json()));
+            })
+            .then((payload) => {
+                this.setState({
+                    isLoaded: true,
+                    data: {
+                        upcoming: payload[0],
+                        current: payload[1]
+                    }
+                })
+            });
     }
 
     render() {
-        const cityDetails = this.props.location.state.city;
-        const cityCurrentWeather = this.props.location.state.current;
+        let backgroundStyles = {};
+
+        // load background only after data has been retrieved
+        if (this.state.isLoaded) {
+            const weatherKey = this.state.data.current.weather[0].main.toLowerCase();
+            backgroundStyles = {
+                backgroundImage: `url(${weather[weatherKey].backgroundImage})`,
+                backgroundSize: "cover"
+            }
+        }
+
         return (
-            <div className="detailpage">
-                <div className="container">
-                    <Link to="/">Back to Overview</Link>
-                    <div>
-                        <h1>{`${cityDetails.name}, ${cityDetails.state}`}</h1>
-                        <h3>Current Weather</h3>
-                        <h1>{cityCurrentWeather.main.temp}&deg;F</h1>
-                        <h3>{cityCurrentWeather.weather[0].description}</h3>
-                    </div>
-                    <div>
-                        <h3>Upcoming Forecast</h3>
-                    </div>
-                </div>
+            <div className="detailpage" style={backgroundStyles}>
+                {!this.state.isLoaded ?
+                    <h2 className="loading-message">Hang on, getting data...</h2>:
+                    <DetailDisplay
+                        current={this.state.data.current}
+                        upcoming={this.state.data.upcoming}
+                        city={cities[this.props.match.params.id]}
+                    />}
             </div>
         );
     }

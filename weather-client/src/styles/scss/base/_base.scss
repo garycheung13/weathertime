@@ -4,9 +4,22 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
+
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-a {
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.loading-message {
     color: black;
-    text-decoration: none;
+    font-size: 5rem;
+    text-align: center;
 }

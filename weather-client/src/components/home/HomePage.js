@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HomeWeatherCard from './HomeWeatherCard';
-import { cities } from '../../enums';
+import { cities } from '../../dictionarys';
 
 class HomePage extends Component {
     constructor(props) {
@@ -44,7 +44,7 @@ class HomePage extends Component {
                             if (!this.state.isLoaded){
                                 return <p key={i}>loading...</p>
                             } else {
-                                return <HomeWeatherCard city={cities[name]} current={this.state.data[i]} key={i}/>
+                                return <HomeWeatherCard city={cities[name]} current={this.state.data[i]} cityKey={name} key={i}/>
                             }
                         })
                     }

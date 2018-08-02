@@ -20,7 +20,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.post("/api/single-current", function(req, res){
-  console.log(req.body.id);
   const url = `https://api.openweathermap.org/data/2.5/weather?id=${req.body.id}&units=imperial&APPID=${process.env.API_KEY}`;
   request(url, function(err, response, req){
     res.json(JSON.parse(response.body));
