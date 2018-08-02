@@ -1,0 +1,26 @@
+// reponsive rem settings
+html {
+    font-size: 14px;
+
+    @include breakpoint-min(medium) {
+        font-size: 16px;
+    }
+
+    @include breakpoint-min(large) {
+        font-size: 18px;
+    }
+}
+
+h1 {
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3.5rem;
+}
+
+h2 {
+    font-family: "Nunito", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.5rem;
+}

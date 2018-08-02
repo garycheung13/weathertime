@@ -1,0 +1,28 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    width: 48%;
+    height: 250px;
+    box-sizing: border-box;
+    padding: 2.5%;
+    margin-bottom: 2.5%;
+    background-color: aqua;
+    display: flex;
+
+    @include breakpoint-max(small) {
+        width: 98%;
+    }
+}
+
+.card-text {
+    width: 60%;
+}
+
+.card-icon {
+    width: 40%;
+    margin: 0 auto;
+}

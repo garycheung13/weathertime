@@ -1,34 +1,34 @@
 // cities included in app
 // defines city specific information needed for app and api calls
-const cities = {
+export const cities = {
     NEWYORK: {
         id: 5128638,
         tz: "EST",
-        city: "New York",
+        name: "New York",
         state: "NY"
     },
     DETROIT: {
         id: 4990729,
         tz: "EST",
-        city: "Detroit",
+        name: "Detroit",
         state: "MI"
     },
     CHICAGO: {
         id: 4887398,
         tz: "CST",
-        city: "Chicago",
+        name: "Chicago",
         state: "IL"
     },
     SANFRANCISCO: {
         id: 5391959,
         tz: "PST",
-        city: "San Francisco",
+        name: "San Francisco",
         state: "CA"
     },
     HOUSTON: {
         id: 4391354,
         tz: "CST",
-        city: "Houston",
+        name: "Houston",
         state: "TX"
     }
 }
@@ -37,7 +37,7 @@ const cities = {
 // based on open weather api's groups
 // defines gradient overlay color & background image for a specific weather condition
 // https://openweathermap.org/weather-conditions
-const weather = {
+export const weather = {
     THUNDERSTORM: {
         leftColor: "#",
         rightColor: "#",
