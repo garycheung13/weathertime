@@ -4,6 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var request = require('request');
+// use local .env file in
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config();
+}
 
 var app = express();
 
@@ -13,6 +18,32 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.post("/api/single-current", function(req, res){
+  const url = `https://api.openweathermap.org/data/2.5/weather?id=${req.body.id}&units=imperial&APPID=${process.env.API_KEY}`;
+  request(url, function(err, response, req){
+    res.json(JSON.parse(response.body));
+    return;
+  });
+});
+
+app.post("/api/group-current", function(req, res){
+  const url = `https://api.openweathermap.org/data/2.5/group?id=${req.body.ids.toString()}&units=imperial&APPID=${process.env.API_KEY}`;
+  request(url, function(err, response, req){
+    res.json(JSON.parse(response.body));
+    return;
+  });
+});
+
+
+app.post("/api/forecast", function(req, res){
+  const url = `https://api.openweathermap.org/data/2.5/forecast?id=${req.body.id}&units=imperial&APPID=${process.env.API_KEY}`;
+  request(url, function(err, response, req){
+    res.json(JSON.parse(response.body));
+    return;
+  })
+});
+
 
 // temporary message, serve react app in prod
 app.get('*', function(req, res){
