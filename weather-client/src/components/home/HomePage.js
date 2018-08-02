@@ -3,17 +3,33 @@ import HomeWeatherCard from './HomeWeatherCard';
 import { cities } from '../../enums';
 
 class HomePage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoaded: false,
+            data: [],
+            cityKeys: Object.keys(cities),
+        };
+    }
+
     componentDidMount() {
-        fetch("api/single-current", {
+        // create array of cities to use with multi-city weather api call
+        const cityIDs = this.state.cityKeys.map(function(name){
+            return cities[name].id;
+        });
+        // fetch the current weather data after initial mount
+        fetch("api/group-current", {
             method: "post",
             headers: {"Content-Type": "application/json" },
-            body: JSON.stringify({id: 4990729}),
-        }).then(function(res){
-            console.log(res);
-            return res.json();
-        }).then(function(payload){
-            console.log(payload);
+            body: JSON.stringify({ids: cityIDs}),
         })
+        .then((res) => res.json())
+        .then((payload) => {
+            this.setState({
+                isLoaded: true,
+                data: payload.list
+            });
+        });
     }
 
     render() {
@@ -24,8 +40,12 @@ class HomePage extends Component {
                     <h2>Select a city for more details</h2>
                     <div className="cards">
                     {
-                        Object.keys(cities).map(function(name, i){
-                            return <HomeWeatherCard city={cities[name]} current="78" key={i}/>
+                        this.state.cityKeys.map((name, i) => {
+                            if (!this.state.isLoaded){
+                                return <p key={i}>loading...</p>
+                            } else {
+                                return <HomeWeatherCard city={cities[name]} current={this.state.data[i]} key={i}/>
+                            }
                         })
                     }
                     </div>
