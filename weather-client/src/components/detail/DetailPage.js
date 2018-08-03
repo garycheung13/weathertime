@@ -16,7 +16,11 @@ class DetailPage extends Component {
     }
     componentDidMount() {
         // need to use two endpoints to get both current weather and upcoming forecast
-        const urls = [`http://${window.location.host}/api/forecast`, `http://${window.location.host}/api/single-current`]
+        // const urls = [`http://${window.location.host}/api/forecast`, `http://${window.location.host}/api/single-current`]
+        const urls = [
+            `${window.location.protocol}/api/forecast`,
+            `${window.location.protocol}/api/single-current`
+        ];
         const requests = urls.map(url => fetch(url, {
             method: "post",
             headers: {"Content-Type": "application/json" },
