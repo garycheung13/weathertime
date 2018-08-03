@@ -40,7 +40,7 @@ class HomePage extends Component {
             <div className="homepage">
                 <div className="container">
                     <h1>Weathertime</h1>
-                    <h2>Select a city for more details</h2>
+                    <h2>Select a city to view forecast details</h2>
                     <div className="cards">
                     {
                         this.state.cityKeys.map((name, i) => {
