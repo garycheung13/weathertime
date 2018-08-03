@@ -48,7 +48,7 @@ app.post("/api/forecast", function(req, res){
 // temporary message, serve react app in prod
 app.get('*', function(req, res){
   // uncomment after react app is built
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  res.sendFile(path.join(__dirname+'/weather-client/build/index.html'));
 
   // res.json("express service is working");
   return;
