@@ -30,6 +30,6 @@ The server looks for an `API_KEY` variable in the environment variables to make 
 
 ## Steps
 1. Download the project and install dependencies using `yarn install` or `npm install`. Run the command twice, once in the project root for the server packages and in the `weather-client` for the frontend packages.
-2. Create a `.env` file in the project root and all your openweathermap api key to the file in the format of `API_KEY=YOUR_KEY`.
+2. Create a `.env` file in the project root and add your openweathermap api key to the file in the format of `API_KEY=YOUR_KEY`.
 3. Start the server in development mode by running `yarn dev-start` or `npm run dev-start` from the project root.
 4. Open a new terminal and change directory to `weather-client`. Run the commend `yarn start`/`npm start` to start the react app in development mode.
