@@ -53,9 +53,8 @@ Anything that doesn't produce output
 .card-icon {
   width: 40%; }
   .card-icon img {
-    height: 80%;
-    width: auto;
-    max-height: 200px; }
+    width: 100%;
+    height: auto; }
 
 .tiles {
   display: flex;

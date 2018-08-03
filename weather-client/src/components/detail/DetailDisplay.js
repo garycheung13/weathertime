@@ -18,7 +18,7 @@ const DetailDisplay = ({current, upcoming, city}) => {
                 <h3>Current Weather</h3>
                 <div className="detail-main__degree">
                     <h1>{current.main.temp}&deg;F</h1>
-                    <img src={weather[weatherKey].icon} alt="placeholder" className="icon"/>
+                    <img src={weather[weatherKey].icon} alt={current.weather[0].description} className="icon"/>
                 </div>
                 <h3 className="detail-main__desc">{current.weather[0].description}</h3>
                 <div className="detail-main__future">

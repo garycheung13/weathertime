@@ -21,7 +21,7 @@ const HomeWeatherCard = ({city, current, cityKey, epoch}) => {
                 <h4>{current.weather[0].description}</h4>
             </div>
             <div className="card-icon">
-                <img src={weather[weatherKey].icon} alt="placeholder"/>
+                <img src={weather[weatherKey].icon} alt={current.weather[0].description}/>
             </div>
         </Link>
     );
