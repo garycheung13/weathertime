@@ -44,7 +44,9 @@ class DetailPage extends Component {
             const weatherKey = this.state.data.current.weather[0].main.toLowerCase();
             backgroundStyles = {
                 backgroundImage: `url(${weather[weatherKey].backgroundImage})`,
-                backgroundSize: "cover"
+                backgroundSize: "cover",
+                backgroundAttachment: "fixed",
+                overflowY: "scroll"
             }
         }
 

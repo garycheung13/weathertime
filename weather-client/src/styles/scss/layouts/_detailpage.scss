@@ -16,6 +16,7 @@
 .detail {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .detail-main {
@@ -28,6 +29,10 @@
 
     h3 {
         margin-bottom: 0;
+    }
+
+    @include breakpoint-max(small) {
+        width: 100%;
     }
 }
 
@@ -44,5 +49,11 @@
 
 .detail-secondary {
     width: 30%;
-    // border-left: 1px solid white;
+
+    @include breakpoint-max(small) {
+        ul {
+            padding-left: 0;
+        }
+        width: 100%;
+    }
 }

@@ -55,6 +55,18 @@ Anything that doesn't produce output
     height: 80%;
     width: auto; }
 
+.tiles {
+  display: flex; }
+
+.tile {
+  padding-right: 3.5%; }
+  .tile img {
+    width: 100%;
+    max-width: 75px; }
+  .tile h4 {
+    margin-top: 0;
+    text-align: center; }
+
 .detailpage {
   height: 100vh;
   color: white; }
@@ -67,7 +79,8 @@ Anything that doesn't produce output
 
 .detail {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-wrap: wrap; }
 
 .detail-main {
   width: 70%; }
@@ -77,6 +90,9 @@ Anything that doesn't produce output
     margin-bottom: 75px; }
   .detail-main h3 {
     margin-bottom: 0; }
+  @media screen and (max-width: 767px) {
+    .detail-main {
+      width: 100%; } }
 
 .detail-main__degree {
   display: flex;
@@ -88,6 +104,11 @@ Anything that doesn't produce output
 
 .detail-secondary {
   width: 30%; }
+  @media screen and (max-width: 767px) {
+    .detail-secondary {
+      width: 100%; }
+      .detail-secondary ul {
+        padding-left: 0; } }
 
 .homepage {
   background-color: #f1f8fd;

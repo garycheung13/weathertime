@@ -1,0 +1,17 @@
+.tiles {
+    display: flex;
+}
+
+.tile {
+    padding-right: 3.5%;
+
+    img {
+        width: 100%;
+        max-width: 75px;
+    }
+
+    h4 {
+        margin-top: 0;
+        text-align: center;
+    }
+}

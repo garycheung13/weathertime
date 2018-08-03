@@ -22,9 +22,17 @@ const DetailDisplay = ({current, upcoming, city}) => {
                 <h3>{current.weather[0].description}</h3>
                 <div>
                     <h3>Upcoming Forecast</h3>
-                    {
-
-                    }
+                    <div className="tiles">
+                        {
+                            upcoming.list.filter((forecast, i) => {
+                                // api returns upcoming forecast in 3 hour intervals for next 5 days
+                                // first forecast for each day has an index that is multiple of 8
+                                return i % 8 === 0;
+                            }).map((forecast, i) => {
+                                return <UpcomingForecastTile forecast={forecast} key={i}/>
+                            })
+                        }
+                    </div>
                 </div>
             </div>
             <div className="detail-secondary">
