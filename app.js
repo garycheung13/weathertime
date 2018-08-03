@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 var app = express();
+app.use(express.static(path.join(__dirname, 'weather-client/build')));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
