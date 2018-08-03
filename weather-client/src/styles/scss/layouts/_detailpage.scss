@@ -36,6 +36,14 @@
     }
 }
 
+.detail-main__future {
+    > h3 {
+        margin-top: 100px;
+        margin-bottom: 50px;
+        font-size: 1.5rem;
+    }
+}
+
 .detail-main__degree {
     display: flex;
     align-items: center;

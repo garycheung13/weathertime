@@ -13,10 +13,11 @@ Anything that doesn't produce output
   box-sizing: border-box;
   padding: 2.5%;
   margin-bottom: 2.5%;
-  background-color: aqua;
+  background-color: grey;
   border-radius: 10px;
   box-shadow: 0px 0px 8px rgba(204, 204, 204, 0.2);
   display: flex;
+  flex-direction: row;
   align-items: center; }
   .card h2, .card h3, .card h4 {
     color: white; }
@@ -53,19 +54,33 @@ Anything that doesn't produce output
   width: 40%; }
   .card-icon img {
     height: 80%;
-    width: auto; }
+    width: auto;
+    max-height: 200px; }
 
 .tiles {
-  display: flex; }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+  margin-top: 25px; }
+  @media screen and (max-width: 767px) {
+    .tiles {
+      width: 100%; } }
 
 .tile {
-  padding-right: 3.5%; }
+  padding-right: 3.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
   .tile img {
     width: 100%;
     max-width: 75px; }
-  .tile h4 {
-    margin-top: 0;
-    text-align: center; }
+  .tile h3, .tile h4 {
+    margin-top: 0px;
+    font-weight: 300; }
+    @media screen and (max-width: 767px) {
+      .tile h3, .tile h4 {
+        font-size: 0.8rem; } }
 
 .detailpage {
   height: 100vh;
@@ -93,6 +108,11 @@ Anything that doesn't produce output
   @media screen and (max-width: 767px) {
     .detail-main {
       width: 100%; } }
+
+.detail-main__future > h3 {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  font-size: 1.5rem; }
 
 .detail-main__degree {
   display: flex;

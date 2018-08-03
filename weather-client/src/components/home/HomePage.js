@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import HomeWeatherCard from './HomeWeatherCard';
-import { cities } from '../../dictionarys';
+import { cities } from '../../dictionaries';
 
 class HomePage extends Component {
     constructor(props) {
@@ -33,10 +33,13 @@ class HomePage extends Component {
     }
 
     render() {
+        // get the epoch up here, so each iteration in .map isn't off by a few millisecond
+        const currentEpoch = new Date().getTime();
+
         return (
             <div className="homepage">
                 <div className="container">
-                    <h1>Weather Done Quick</h1>
+                    <h1>Weathertime</h1>
                     <h2>Select a city for more details</h2>
                     <div className="cards">
                     {
@@ -44,7 +47,12 @@ class HomePage extends Component {
                             if (!this.state.isLoaded){
                                 return <p key={i}>loading...</p>
                             } else {
-                                return <HomeWeatherCard city={cities[name]} current={this.state.data[i]} cityKey={name} key={i}/>
+                                return <HomeWeatherCard
+                                    city={cities[name]}
+                                    current={this.state.data[i]}
+                                    cityKey={name}
+                                    epoch={currentEpoch}
+                                    key={i}/>
                             }
                         })
                     }

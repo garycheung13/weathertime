@@ -6,6 +6,7 @@ import fog from './images/weather_icons/fog.svg';
 import rain from './images/weather_icons/rain.svg';
 import snow from './images/weather_icons/snow.svg';
 import storm from './images/weather_icons/storm.svg';
+import fallback from './images/weather_icons/fallback.svg';
 
 // background image imports
 import clearBg from './images/backgrounds/clearBg.jpg';
@@ -15,37 +16,38 @@ import fogBg from './images/backgrounds/fogBg.jpg';
 import rainBg from './images/backgrounds/rainBg.jpg';
 import snowBg from './images/backgrounds/snowBg.jpg';
 import stormBg from './images/backgrounds/stormBg.jpg';
+import fallbackBg from './images/backgrounds/fallbackBg.jpg';
 
 // cities included in app
 // defines city specific information needed for app and api calls
 export const cities = {
     "new-york": {
         id: 5128638,
-        tz: "EST",
+        tz: "America/New_York",
         name: "New York",
         state: "NY"
     },
     "detroit": {
         id: 4990729,
-        tz: "EST",
+        tz: "America/New_York",
         name: "Detroit",
         state: "MI"
     },
     "chicago": {
         id: 4887398,
-        tz: "CST",
+        tz: "America/Chicago",
         name: "Chicago",
         state: "IL"
     },
     "san-francisco": {
         id: 5391959,
-        tz: "PST",
+        tz: "America/Los_Angeles",
         name: "San Francisco",
         state: "CA"
     },
     "houston": {
         id: 4391354,
-        tz: "CST",
+        tz: "America/Chicago",
         name: "Houston",
         state: "TX"
     }
@@ -91,5 +93,15 @@ export const weather = {
     "haze": {
         backgroundImage: fogBg,
         icon: fog
+    },
+    "mist": {
+        backgroundImage: fogBg,
+        icon: fog
+    },
+    // incase the api responses with a condition not in the dict,
+    // use a generic image and icon
+    "fallback": {
+        backgroundImage: fallbackBg,
+        icon: fallback
     }
 }

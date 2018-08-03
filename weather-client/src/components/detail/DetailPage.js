@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { cities, weather } from '../../dictionarys';
+import { cities, weather } from '../../dictionaries';
 import DetailDisplay from './DetailDisplay';
+import { findWeatherKey } from '../../utils';
 
 class DetailPage extends Component {
     constructor(props) {
@@ -37,11 +38,13 @@ class DetailPage extends Component {
     }
 
     render() {
+        const data = this.state.data;
         let backgroundStyles = {};
 
         // load background only after data has been retrieved
         if (this.state.isLoaded) {
-            const weatherKey = this.state.data.current.weather[0].main.toLowerCase();
+            const weatherKey = findWeatherKey(data.current.weather[0].main.toLowerCase());
+
             backgroundStyles = {
                 backgroundImage: `url(${weather[weatherKey].backgroundImage})`,
                 backgroundSize: "cover",
@@ -55,8 +58,8 @@ class DetailPage extends Component {
                 {!this.state.isLoaded ?
                     <h2 className="loading-message">Hang on, getting data...</h2>:
                     <DetailDisplay
-                        current={this.state.data.current}
-                        upcoming={this.state.data.upcoming}
+                        current={data.current}
+                        upcoming={data.upcoming}
                         city={cities[this.props.match.params.id]}
                     />}
             </div>
