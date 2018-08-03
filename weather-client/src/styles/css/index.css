@@ -60,37 +60,42 @@ Anything that doesn't produce output
 .tiles {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-content: flex-start;
+  justify-content: flex-start;
   margin-top: 25px; }
   @media screen and (max-width: 767px) {
     .tiles {
       width: 100%; } }
 
 .tile {
-  padding-right: 3.5%;
+  width: 20%;
   display: flex;
-  flex-direction: column;
-  align-items: center; }
+  flex-direction: column; }
   .tile img {
     width: 100%;
+    height: auto;
     max-width: 75px; }
   .tile h3, .tile h4 {
     margin-top: 0px;
     font-weight: 300; }
-    @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767px) {
+    .tile {
+      align-items: center; }
       .tile h3, .tile h4 {
-        font-size: 0.8rem; } }
+        font-size: 1rem; } }
 
 .detailpage {
   height: 100vh;
   color: white; }
   .detailpage .icon {
-    height: 120px;
-    width: auto; }
+    width: 100%;
+    height: auto;
+    max-width: 100px; }
   .detailpage a {
     text-decoration: underline;
-    color: white; }
+    color: white;
+    font-size: 1.15rem;
+    display: inline-block;
+    margin-top: 10px; }
 
 .detail {
   display: flex;
@@ -122,8 +127,24 @@ Anything that doesn't produce output
     margin-top: 0;
     margin-bottom: 0; }
 
+.detail-main__desc {
+  text-transform: capitalize;
+  font-size: 2rem; }
+
 .detail-secondary {
-  width: 30%; }
+  box-sizing: border-box;
+  margin-top: 5%;
+  width: 30%;
+  position: relative; }
+  @media screen and (min-width: 768px) {
+    .detail-secondary::after {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 50%;
+      width: inherit;
+      top: 0;
+      border-left: 2px solid white; } }
   @media screen and (max-width: 767px) {
     .detail-secondary {
       width: 100%; }

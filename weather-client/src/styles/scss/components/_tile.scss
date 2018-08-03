@@ -1,8 +1,7 @@
 .tiles {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-content: flex-start;
+    justify-content: flex-start;
     margin-top: 25px;
 
     @include breakpoint-max(small) {
@@ -11,22 +10,26 @@
 }
 
 .tile {
-    padding-right: 3.5%;
+    width: 20%;
     display: flex;
     flex-direction: column;
-    align-items: center;
 
     img {
         width: 100%;
+        height: auto;
         max-width: 75px;
     }
 
     h3, h4 {
         margin-top: 0px;
         font-weight: 300;
+    }
 
-        @include breakpoint-max(small) {
-            font-size: 0.8rem;
+    @include breakpoint-max(small) {
+        align-items: center;
+
+        h3, h4 {
+            font-size: 1rem;
         }
     }
 }

@@ -13,14 +13,14 @@ const DetailDisplay = ({current, upcoming, city}) => {
     return (
         <div className="container detail">
             <div className="detail-main">
-            <Link to="/">&larr; Back to Overview</Link>
+                <Link to="/">&larr; Back to Overview</Link>
                 <h2>{`${city.name}, ${city.state}`}</h2>
                 <h3>Current Weather</h3>
                 <div className="detail-main__degree">
                     <h1>{current.main.temp}&deg;F</h1>
                     <img src={weather[weatherKey].icon} alt="placeholder" className="icon"/>
                 </div>
-                <h3>{current.weather[0].description}</h3>
+                <h3 className="detail-main__desc">{current.weather[0].description}</h3>
                 <div className="detail-main__future">
                     <h3>Five Day Forecast</h3>
                     <div className="tiles">
